@@ -33,23 +33,23 @@ public class Git extends UtilityClass {
 	}
 
 	@Test(priority = 2)
-	public void create() throws IOException {
+	public void createRepo() throws IOException {
 		given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
 				.header("Content-Type", "application/json").body(new File(getPropertyFileValue("jsonPathOfCreateRepo")))
-				.when().post("user/repos").then().assertThat().statusCode(201).body("name", equalTo("REST")).log()
+				.when().post("user/SAral0027/repos").then().assertThat().statusCode(201).body("name", equalTo("REST")).log()
 				.all();
 	}
 
 	@Test(priority = 3)
-	public void update() throws IOException {
+	public void updateRepo() throws IOException {
 		given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
 				.header("Content-Type", "application/json").body(new File(getPropertyFileValue("jsonPathOfUpdateRepo")))
-				.when().patch("repos/SAral0027/REST").then().assertThat().statusCode(200)
+				.when().patch("repos/REST").then().assertThat().statusCode(200)
 				.body("name", equalTo("RESTAssured")).log().all();
 	}
 
 	@Test(priority = 4)
-	public void delete() throws IOException {
+	public void deleteRepo() throws IOException {
 		given().header("Authorization", "Bearer " + getPropertyFileValue("token")).when()
 				.delete("repos/SAral0027/RESTAssured").then().assertThat().statusCode(204).log().all();
 	}

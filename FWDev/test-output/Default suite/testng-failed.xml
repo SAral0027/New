@@ -5,8 +5,10 @@
     <classes>
       <class name="com.apitest.Git">
         <methods>
-          <include name="delete"/>
+          <include name="updateRepo"/>
+          <include name="deleteRepo"/>
           <include name="beforeMethod"/>
+          <include name="createRepo"/>
         </methods>
       </class> <!-- com.apitest.Git -->
     </classes>
